@@ -3,7 +3,7 @@
     <div class="container">
       <div class="content">
         <aside>
-          <CoctailsMenu />
+          <NavMenuContainer />
         </aside>
       
         <main>
@@ -33,11 +33,15 @@
   .content {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    gap: 20px;
+    gap: 16px;
   }
 
   footer {
     border-top: 1px solid black;
   }
+}
+
+aside, main {
+  padding: 12px;
 }
 </style>

@@ -1,4 +1,4 @@
-export const coctails = [
+export const cocktails = [
   'margarita',
   'mojito',
   'a1',

@@ -1,6 +1,6 @@
 import type { Nullable } from "./common"
 
-export interface Coctail {
+export interface Cocktail {
   idDrink: string;
   strDrink: Nullable<string>;
   strDrinkAlternate: Nullable<string>;
