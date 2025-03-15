@@ -1,5 +1,5 @@
-import type { Cocktail } from "./cocktails";
+import type { CocktailServerResponse } from "./cocktails";
 
 export interface apiGetCocktailByNameResponse {
-  drinks: Cocktail[];
+  drinks: CocktailServerResponse[];
 }

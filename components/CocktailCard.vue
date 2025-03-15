@@ -28,7 +28,7 @@ defineProps({
       <h3>List of ingridients:</h3>
 
       <ul class="ingridients">
-        <li v-for="(ingridient, measure) in getIngridientsAndMeasuresFormCocktail(cocktail)" :key="measure">
+        <li v-for="(ingridient, measure) in cocktail.ingredients" :key="measure">
           <div class="ingridients_item">
             <p>{{ measure }}</p>
 

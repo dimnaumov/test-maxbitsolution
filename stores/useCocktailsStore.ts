@@ -18,14 +18,18 @@ export const useCocktailsStore = defineStore('cocktails', {
 
   actions: {
     async getCocktailByName(name: string) {
+      if (this.items[name]) {
+        return;
+      }
+
       this.isLoading = true;
       this.error = null;
 
       try {
         const response = await apiServiceCocktails.getCocktailByName(name);
 
-        this.items[name] = response.drinks.reduce((result: Record<string, Cocktail>, drink) => {
-          result[drink.idDrink] = drink;
+        this.items[name] = response.drinks.reduce((result: Record<string, Cocktail>, cocktail) => {
+          result[cocktail.idDrink] = transformCocktailData(cocktail);
 
           return result;
         }, {});

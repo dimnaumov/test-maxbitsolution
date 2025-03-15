@@ -1,17 +1,27 @@
-import type { Cocktail } from "~/types/cocktails";
+import type { Cocktail, CocktailServerResponse } from "~/types/cocktails";
 
-export const getIngridientsAndMeasuresFormCocktail = (cocktail: Cocktail) => {
-  const ingridientsPrefix = 'strIngredient';
-  const measurePrefix = 'strMeasure';
-
+export const transformCocktailData = (cocktail: CocktailServerResponse): Cocktail => {
   return Object.entries(cocktail).reduce((result, [key, value]) => {
+    const ingridientsPrefix = 'strIngredient';
+    const measurePrefix = 'strMeasure';
+
+    if (!key.startsWith(ingridientsPrefix) && !key.startsWith(measurePrefix) ) {
+      result[key as keyof Cocktail] = value;
+    }
+
+    if (!result.ingredients) {
+      result.ingredients = {};
+    }
+
     if (key.startsWith(ingridientsPrefix)) {
       const index = parseInt(key.replace(/\D/g, ""), 10);
-      if (cocktail[`${measurePrefix}${index}`]) {
-        result[value] = cocktail[`${measurePrefix}${index}`]
+      const measure = cocktail[`${measurePrefix}${index}` as keyof CocktailServerResponse];
+
+      if (measure) {
+        result.ingredients[value] = measure;
       }
     }
 
     return result;
-  }, {});
+  }, {} as Cocktail)
 }

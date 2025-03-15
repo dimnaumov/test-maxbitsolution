@@ -1,6 +1,6 @@
 import type { Nullable } from "./common"
 
-export interface Cocktail {
+interface BaseCocktail {
   idDrink: string;
   strDrink: Nullable<string>;
   strDrinkAlternate: Nullable<string>;
@@ -18,6 +18,13 @@ export interface Cocktail {
   strInstructionsZHHANS: Nullable<string>;
   strInstructionsZHHANT: Nullable<string>;
   strDrinkThumb: Nullable<string>;
+  strImageSource: Nullable<string>;
+  strImageAttribution: Nullable<string>;
+  strCreativeCommonsConfirmed: Nullable<string>;
+  dateModified: Nullable<string>;
+}
+
+export interface CocktailServerResponse extends BaseCocktail {
   strIngredient1: Nullable<string>;
   strIngredient2: Nullable<string>;
   strIngredient3: Nullable<string>;
@@ -48,8 +55,8 @@ export interface Cocktail {
   strMeasure13: Nullable<string>;
   strMeasure14: Nullable<string>;
   strMeasure15: Nullable<string>;
-  strImageSource: Nullable<string>;
-  strImageAttribution: Nullable<string>;
-  strCreativeCommonsConfirmed: Nullable<string>;
-  dateModified: Nullable<string>;
+}
+
+export interface Cocktail extends BaseCocktail {
+  ingredients: Record<string, string>;
 }
