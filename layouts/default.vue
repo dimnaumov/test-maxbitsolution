@@ -14,7 +14,7 @@
 
     <footer>
       <div class="container">
-        <p>© 2025 Test Maxbitsolution</p>
+        <p>© 2025 Test Maxbitsolution by Naumov Dmitriy</p>
       </div>
     </footer>
   </div>
