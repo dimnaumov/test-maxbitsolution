@@ -35,7 +35,7 @@
 
 По окончанию:
 - выложить в репозиторий
-- развернуть на любом бесплатном хостинге, например Vercel
+- развернуть на любом бесплатном хостинге, например Vercel: https://test-maxbitsolution-sooty.vercel.app/
 
 # Nuxt Minimal Starter
 
