@@ -12,7 +12,11 @@ defineProps({
 <template>
   <nav>
     <ul class="menu">
-      <li v-for="item in items" :key="item.title" class="menu_item">
+      <li
+        v-for="item in items"
+        :key="item.title"
+        class="menu_item"
+      >
         <NavMenuItem :item="item" />
       </li>
     </ul>

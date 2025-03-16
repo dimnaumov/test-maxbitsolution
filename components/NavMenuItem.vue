@@ -14,7 +14,11 @@ const linkClassNames = computed(() => ({
 </script>
 
 <template>
-  <NuxtLink :to="`${item.link}`" :class="linkClassNames" class="link">
+  <NuxtLink
+    :to="`${item.link}`"
+    :class="linkClassNames"
+    class="link"
+  >
     {{ item.title }}
   </NuxtLink>
 </template>

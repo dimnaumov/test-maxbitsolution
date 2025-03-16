@@ -28,7 +28,10 @@ defineProps({
       <h3>List of ingridients:</h3>
 
       <ul class="ingridients">
-        <li v-for="(ingridient, measure) in cocktail.ingredients" :key="measure">
+        <li
+          v-for="(ingridient, measure) in cocktail.ingredients"
+          :key="measure"
+        >
           <div class="ingridients_item">
             <p>{{ measure }}</p>
 
@@ -38,14 +41,14 @@ defineProps({
       </ul>
     </div>
 
-    <NuxtImg
-      v-if="cocktail.strDrinkThumb"
-      :src="cocktail.strDrinkThumb"
-      :alt="cocktail.strDrink ?? 'cocktail'"
-      width="350"
-      height="350"
-      class="image"
-    />
+    <div>
+      <NuxtImg
+        v-if="cocktail.strDrinkThumb"
+        :src="cocktail.strDrinkThumb"
+        :alt="cocktail.strDrink ?? 'cocktail'"
+        class="image"
+      />
+    </div>
   </div>
 </template>
 
@@ -72,5 +75,6 @@ defineProps({
   object-fit: cover;
   object-position: center;
   border-radius: 20px;
+  max-width: 100%;
 }
 </style>
