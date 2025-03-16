@@ -3,7 +3,6 @@ import type { Cocktail } from "~/types/cocktails";
 
 export interface CocktailsState {
   items: Record<string, Record<string, Cocktail>>;
-  ids: Cocktail['idDrink'][];
   isLoading: boolean;
   error: string | null;
 }
@@ -11,7 +10,6 @@ export interface CocktailsState {
 export const useCocktailsStore = defineStore('cocktails', {
   state: (): CocktailsState => ({
     items: {},
-    ids: [],
     isLoading: false,
     error: null,
   }),
@@ -28,15 +26,18 @@ export const useCocktailsStore = defineStore('cocktails', {
       try {
         const response = await apiServiceCocktails.getCocktailByName(name);
 
+        if (!response.drinks) {
+          this.error = 'Data not found';
+          return;
+        }
+
         this.items[name] = response.drinks.reduce((result: Record<string, Cocktail>, cocktail) => {
           result[cocktail.idDrink] = transformCocktailData(cocktail);
 
           return result;
         }, {});
-
-        this.ids = response.drinks.map((drink) => drink.idDrink);
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        this.error = err as string;
       } finally {
         this.isLoading = false;
       }

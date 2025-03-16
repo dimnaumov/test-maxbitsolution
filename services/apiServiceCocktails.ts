@@ -26,7 +26,7 @@ class ApiServiceCocktails {
       }
 
       if (!data.value) {
-        throw new Error('Коктейли с таким названием не найдены!');
+        throw new Error('Data not found');
       }
 
       return data.value;
