@@ -5,7 +5,7 @@ defineProps({
   items: {
     type: Array as PropType<MenuItem[]>,
     required: true,
-  }
+  },
 });
 </script>
 

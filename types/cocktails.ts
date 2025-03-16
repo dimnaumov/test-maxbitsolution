@@ -1,4 +1,4 @@
-import type { Nullable } from "./common"
+import type { Nullable } from "./common";
 
 interface BaseCocktail {
   idDrink: string;

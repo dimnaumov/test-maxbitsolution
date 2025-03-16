@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { cocktails } from '~/constants/cocktails';
 
-const route = useRoute()
+const route = useRoute();
 const slug = computed(() => route.params.slug);
 
 const items = computed(() => 
@@ -9,7 +9,7 @@ const items = computed(() =>
     title: cocktail,
     link: `/${cocktail}`,
     isActive: cocktail === slug.value,
-  }))
+  })),
 );
 </script>
 

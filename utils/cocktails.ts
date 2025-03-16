@@ -23,5 +23,5 @@ export const transformCocktailData = (cocktail: CocktailServerResponse): Cocktai
     }
 
     return result;
-  }, {} as Cocktail)
-}
+  }, {} as Cocktail);
+};

@@ -5,7 +5,8 @@ class ApiServiceCocktails {
   private baseURL: string;
 
   private constructor() {
-    this.baseURL = process.env.COCKTAILDB_API_URL || 'https://www.thecocktaildb.com/api/json/v1/1/search.php';
+    this.baseURL = process.env.COCKTAILDB_API_URL ||
+      'https://www.thecocktaildb.com/api/json/v1/1/search.php';
   }
 
   public static getInstance(): ApiServiceCocktails {
@@ -17,22 +18,20 @@ class ApiServiceCocktails {
   }
 
   public async getCocktailByName(name: string): Promise<apiGetCocktailByNameResponse> {
-    try {
-      const headers = {};
-      const { data, error } = await useFetch<apiGetCocktailByNameResponse>(`${this.baseURL}?s=${name}`, { headers });
+    const headers = {};
+    const { data, error } = await useFetch<apiGetCocktailByNameResponse>(
+      `${this.baseURL}?s=${name}`, { headers },
+    );
 
-      if (error.value) {
-        throw new Error(error.value.message);
-      }
-
-      if (!data.value) {
-        throw new Error('Data not found');
-      }
-
-      return data.value;
-    } catch (error) {
-      throw error;
+    if (error.value) {
+      throw new Error(error.value.message);
     }
+
+    if (!data.value) {
+      throw new Error('Data not found');
+    }
+
+    return data.value;
   }
 }
 

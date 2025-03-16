@@ -5,12 +5,12 @@ const props = defineProps({
   item: {
     type: Object as PropType<MenuItem>,
     required: true,
-  }
+  },
 });
 
 const linkClassNames = computed(() => ({
   'link-active': props.item.isActive,
-}))
+}));
 </script>
 
 <template>

@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import type { Cocktail } from '~/types/cocktails';
 
-const route = useRoute()
-const store = useCocktailsStore()
+const route = useRoute();
+const store = useCocktailsStore();
 
 const cocktails: Ref<Record<string, Cocktail>> = computed(() => {
   return store.items[route.params.slug as string];
-})
+});
 
-await store.getCocktailByName(route.params.slug as string)
+await store.getCocktailByName(route.params.slug as string);
 </script>
 
 <template>
